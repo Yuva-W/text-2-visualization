@@ -1,0 +1,31 @@
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite';
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss()
+  ],
+  server: {
+    proxy: {
+      '/threads': 'http://localhost:8000',
+      '/chat': 'http://localhost:8000',
+      '/quiz': 'http://localhost:8000',
+      '/progress': 'http://localhost:8000',
+    },
+  },
+})
+
+
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react";
+// import tailwindcss from "@tailwindcss/vite";
+
+// export default defineConfig({
+//     plugins: [
+//         react(),
+//         tailwindcss()
+//     ]
+// });
